@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Dompetku</string>
+    <string name="menu_laporan">laporan</string>
+    <string name="menu_transaksi">Transaksi</string>
+    <string name="menu_setting2">Setiing</string>
+    <string name="menu_setting">Setting</string>
+</resources>
