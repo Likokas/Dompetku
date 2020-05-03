@@ -14,6 +14,8 @@ import com.uc.dompetku.fragments.SettingFragment;
 import com.uc.dompetku.fragments.TransaksiFragment;
 import com.uc.dompetku.fragments.LaporanFragment;
 
+import java.util.List;
+
  public class MainActivity extends AppCompatActivity {
 
      BottomNavigationView bottomNavigationView;

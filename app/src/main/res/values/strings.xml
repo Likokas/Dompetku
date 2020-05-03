@@ -3,4 +3,14 @@
     <string name="menu_laporan">Laporan</string>
     <string name="menu_transaksi">Transaksi</string>
     <string name="menu_setting">Setting</string>
+    <string name="hari_ini">HARI INI</string>
+    <string name="transaksi_data">Transaksi</string>
+    <string name="pemasukan_1">Pemasukan</string>
+    <string name="pengeluaran_1">Pengeluaran</string>
+    <string name="hutang_1">Hutang</string>
+    <string name="in_tanggal">Tanggal</string>
+    <string name="in_kategori">Kategori</string>
+    <string name="in_jumlah">Jumlah</string>
+    <string name="in_catatan">Catatan</string>
+    <string name="simpan_1">Simpan</string>
 </resources>
