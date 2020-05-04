@@ -49,7 +49,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="150dp"
         android:minWidth="125dp"
-        android:text="Hari ini"
+        android:text="@string/hari_ini"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
