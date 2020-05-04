@@ -5,7 +5,8 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.TransaksiFragment" >
+    tools:context=".fragments.TransaksiFragment"
+    tools:ignore="ExtraText">
 
     <ImageView
         android:id="@+id/bg"
@@ -43,6 +44,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:src="@drawable/add"
+        app:backgroundTint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:focusable="true" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="408dp"
@@ -50,28 +62,5 @@
         android:layout_marginTop="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <<<<<<< HEAD
-<<<<<<< HEAD
-        android:id="@+id/addTransaksi"
-=======
-        android:id="@+id/button_add"
->>>>>>> bb35f83bd443042736cf828e499039ca25bcba00
-=======
-        android:id="@+id/button_add"
->>>>>>> bb35f83bd443042736cf828e499039ca25bcba00
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/add"
-        app:backgroundTint="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.904"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
