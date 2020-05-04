@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,7 +21,9 @@ public class LaporanFragment extends Fragment {
     }
 
     private ProgressBar progressBar;
-
+    public TextView mTextView1;
+    public TextView mTextView2;
+    public TextView mTextView3;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,6 +33,7 @@ public class LaporanFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
         super.onViewCreated(view, savedInstanceState);
         progressBar = view.findViewById(R.id.progressBar);
         showLoading(false);

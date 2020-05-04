@@ -2,5 +2,5 @@
     <string name="app_name">Dompetku</string>
     <string name="menu_laporan">Laporan</string>
     <string name="menu_transaksi">Transaksi</string>
-    <string name="menu_setting">Setting</string>
+    <string name="menu_setting">Settings</string>
 </resources>
