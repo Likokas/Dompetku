@@ -54,7 +54,11 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:id="@+id/addTransaksi"
+=======
+        android:id="@+id/button_add"
+>>>>>>> bb35f83bd443042736cf828e499039ca25bcba00
 =======
         android:id="@+id/button_add"
 >>>>>>> bb35f83bd443042736cf828e499039ca25bcba00
