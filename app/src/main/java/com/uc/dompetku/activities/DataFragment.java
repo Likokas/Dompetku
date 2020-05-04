@@ -1,4 +1,4 @@
-package com.uc.dompetku.fragments;
+package com.uc.dompetku.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 

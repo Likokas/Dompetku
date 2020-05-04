@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/iconapp_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".fragments.DataFragment"></activity>
+        <activity android:name=".activities.DataFragment"></activity>
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
