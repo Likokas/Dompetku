@@ -11,12 +11,12 @@
         android:id="@+id/bg"
         android:layout_width="413dp"
         android:layout_height="931dp"
+        android:contentDescription="@string/BG_view"
         android:src="@drawable/bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/BG_view" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/logo"
@@ -42,18 +42,19 @@
         app:layout_constraintStart_toEndOf="@+id/logo"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="408dp"
         android:layout_height="655dp"
         android:layout_marginTop="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" >
+        app:layout_constraintTop_toBottomOf="@+id/logo">
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-<<<<<<< HEAD
+    <<<<<<< HEAD
 <<<<<<< HEAD
         android:id="@+id/addTransaksi"
 =======
