@@ -13,4 +13,6 @@
     <string name="in_jumlah">Jumlah</string>
     <string name="in_catatan">Catatan</string>
     <string name="simpan_1">Simpan</string>
+    <string name="BG_view">BG</string>
+    <string name="logo_dompetku">Logo</string>
 </resources>
