@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -24,6 +25,7 @@ import java.util.List;
      protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
          setContentView(R.layout.activity_main);
+
 
          bottomNavigationView = findViewById(R.id.bottom_nav_main);
          bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -60,5 +62,14 @@ import java.util.List;
          bottomNavigationView.setSelectedItemId(R.id.menu_laporan);
          Fragment fragment = new LaporanFragment();
          loadFragment(fragment);
+         if(getIntent() != null){
+             Intent intent = getIntent();
+             String kode = intent.getStringExtra("buttonfinish");
+             if(kode != null){
+                 bottomNavigationView.setSelectedItemId(R.id.menu_transaksi);
+                 fragment = new TransaksiFragment();
+                 loadFragment(fragment);
+             }
+         }
      }
  }
