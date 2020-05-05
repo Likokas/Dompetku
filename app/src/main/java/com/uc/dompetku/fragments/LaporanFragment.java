@@ -33,18 +33,7 @@ public class LaporanFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
         super.onViewCreated(view, savedInstanceState);
-        progressBar = view.findViewById(R.id.progressBar);
-        showLoading(false);
-    }
-
-    private void showLoading(boolean state) {
-        if(state){
-            progressBar.setVisibility(View.VISIBLE);
-        } else{
-            progressBar.setVisibility(View.GONE);
-        }
     }
 
 }
