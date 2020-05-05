@@ -47,7 +47,8 @@ public class RowLayoutAdapter extends RecyclerView.Adapter<RowLayoutAdapter.Exam
         AdapterUser currentItem = mAdapterList.get(position);
         holder.mTextView1.setText(currentItem.getmTanggal());
         holder.mTextView2.setText(currentItem.getmKategori());
-        holder.mTextView3.setText(currentItem.getmJumlah());
+        holder.mTextView3.setText("-Rp. " + currentItem.getmJumlah());
+
     }
 
     @Override

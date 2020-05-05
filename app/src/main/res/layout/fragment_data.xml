@@ -73,7 +73,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/in_tanggal" />
+                    android:hint="@string/in_tanggal"
+                    android:inputType="date" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,7 +91,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/in_kategori" />
+                    android:hint="@string/in_kategori"
+                    android:inputType="textShortMessage" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -106,7 +108,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/in_jumlah" />
+                    android:hint="@string/in_jumlah"
+                    android:inputType="number" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -124,7 +127,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/in_catatan" />
+                    android:hint="@string/in_catatan"
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -155,42 +159,49 @@
                 tools:ignore="PrivateResource" />
 
             <Button
-                android:id="@+id/btn_pemasukan"
-                android:layout_width="127dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="68dp"
-                android:text="@string/pemasukan_1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/title" />
-
-            <Button
-                android:id="@+id/btn_pengeluaran"
-                android:layout_width="127dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="@string/pengeluaran_1"
-                app:layout_constraintStart_toEndOf="@+id/btn_pemasukan"
-                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-            <Button
-                android:id="@+id/btn_hutang"
-                android:layout_width="127dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
-                android:text="@string/hutang_1"
-                app:layout_constraintStart_toEndOf="@+id/btn_pengeluaran"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
                 android:id="@+id/btn_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/simpan_1"
+                android:text="@string/simpan"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/input_catatan" />
+
+            <RadioButton
+                android:id="@+id/radio_pemasukan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/pemasukan"
+                android:textColor="@android:color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+            <RadioButton
+                android:id="@+id/radio_pengeluaran"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/pengeluaran"
+                android:textColor="@android:color/white"
+                app:layout_constraintStart_toEndOf="@+id/radio_pemasukan"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+            <RadioButton
+                android:id="@+id/radio_hutang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                android:text="@string/hutang"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/radio_pengeluaran"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

@@ -12,9 +12,8 @@ import android.widget.Button;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.uc.dompetku.R;
-import com.uc.dompetku.fragments.TransaksiFragment;
+import com.uc.dompetku.fragments.LaporanFragment;
 import com.uc.dompetku.model.DataUser;
-import com.uc.dompetku.model.User;
 
 public class DataActivity extends AppCompatActivity implements TextWatcher {
     TextInputLayout input_tanggal, input_kategori, input_jumlah, input_catatan;
@@ -42,15 +41,15 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
                 progressDialog.show();
                 progressDialog.setContentView(R.layout.screen_loading);
                 progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-//                User orang = new User(tanggal, kategori, jumlah);
                 DataUser.userdata.add(new AdapterUser(tanggal, kategori, jumlah));
                 Intent intent = new Intent(DataActivity.this, MainActivity.class);
 //                intent.putExtra("dataUser", orang);
-                intent.putExtra("buttonfinish", "123");
+//                intent.putExtra("buttonfinish", "123");
                 startActivity(intent);
                 finish();
             }
         });
+        Intent intent = new Intent(DataActivity.this, LaporanFragment.class);
     }
 
     @Override

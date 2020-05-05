@@ -1,6 +1,7 @@
 package com.uc.dompetku.fragments;
 
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.uc.dompetku.activities.AdapterUser;
+import com.uc.dompetku.activities.DataActivity;
+import com.uc.dompetku.activities.RowLayoutAdapter;
 
 import com.uc.dompetku.R;
+import com.uc.dompetku.model.DataUser;
 
 
 public class LaporanFragment extends Fragment {
@@ -21,9 +26,13 @@ public class LaporanFragment extends Fragment {
     }
 
     private ProgressBar progressBar;
-    public TextView mTextView1;
-    public TextView mTextView2;
-    public TextView mTextView3;
+    public TextView u_sementara, u_pemasukan, u_pengeluaran, u_total, u_hutang, u_total_akhir;
+    int sementara = 0;
+    int pemasukan = 0;
+    int pengeluaran = 0;
+    int total = 0;
+    int hutang = 0;
+    int totalakhir = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,6 +43,56 @@ public class LaporanFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        u_sementara = view.findViewById(R.id.uang_sementara);
+        u_pemasukan = view.findViewById(R.id.uang_pemasukan);
+        u_pengeluaran = view.findViewById(R.id.uang_pengeluaran);
+        u_total = view.findViewById(R.id.uang_total);
+        u_hutang = view.findViewById(R.id.uang_hutang);
+        u_total_akhir = view.findViewById(R.id.uang_total_akhir);
+        for(int i=0; i<DataUser.userdata.size(); i++){
+            pengeluaran += Integer.parseInt(DataUser.userdata.get(i).getmJumlah());
+//            pemasukan += Integer.parseInt(DataUser.userdata.get(i).getmKategori());
+//            pengeluaran += Integer.parseInt(DataUser.userdata.get(i).getmJumlah());
+        }
+
+        total = uTotal();
+        totalakhir = uTotalAkhir();
+
+        u_sementara.setText(String.valueOf("Rp. " + sementara));
+        u_pengeluaran.setText(String.valueOf("Rp. " + pengeluaran));
+        u_pemasukan.setText(String.valueOf(("Rp. " + pemasukan)));
+        u_total.setText(String.valueOf(("Rp. " + total)));
+        u_hutang.setText(String.valueOf(("Rp. " + hutang)));
+        u_total_akhir.setText(String.valueOf(("Rp. " + totalakhir)));
+
+
+
+    }
+
+    public void uSementara(){
+
+    }
+
+    public void uPemasukan(){
+
+    }
+
+    public void uPengeluaran(){
+
+    }
+
+    public int uTotal(){
+        int hasil = sementara + pemasukan - pengeluaran;
+        return hasil;
+    }
+
+    public void uHutang(){
+
+    }
+
+    public int uTotalAkhir(){
+        int hasil = total - hutang;
+        return hasil;
     }
 
 }

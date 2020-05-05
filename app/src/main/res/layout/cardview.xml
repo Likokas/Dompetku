@@ -18,11 +18,11 @@
 
             <TextView
                 android:id="@+id/tanggal_rv"
-                android:layout_width="107dp"
-                android:layout_height="24dp"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:maxLines="1"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -30,11 +30,11 @@
 
             <TextView
                 android:id="@+id/kategori_rv"
-                android:layout_width="108dp"
+                android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:maxLines="1"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tanggal_rv"
                 app:layout_constraintTop_toTopOf="parent"
@@ -42,11 +42,12 @@
 
             <TextView
                 android:id="@+id/jumlah_rv"
-                android:layout_width="107dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:maxLines="1"
-                android:textSize="18sp"
+                android:textAlignment="textEnd"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/kategori_rv"
