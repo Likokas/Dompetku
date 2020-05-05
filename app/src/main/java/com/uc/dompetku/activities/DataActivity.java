@@ -1,9 +1,11 @@
 package com.uc.dompetku.activities;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -21,10 +23,10 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
     TextInputLayout input_tanggal, input_kategori, input_jumlah, input_catatan;
     Button button_save;
     String tanggal, kategori, jumlah, catatan;
-    myDbAdapter helper;
-    Toolbar toolbar;
 
 
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,26 +35,15 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
         input_kategori = findViewById(R.id.input_kategori);
         input_jumlah = findViewById(R.id.input_jumlah);
         input_catatan = findViewById(R.id.input_catatan);
+        button_save = findViewById(R.id.btn_save);
 
 
-
-        helper = new myDbAdapter(this);
 
 
         input_tanggal.getEditText().addTextChangedListener(this);
         input_kategori.getEditText().addTextChangedListener(this);
         input_jumlah.getEditText().addTextChangedListener(this);
         input_catatan.getEditText().addTextChangedListener(this);
-
-        toolbar = findViewById(R.id.toolbar);
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DataActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
 
 
         button_save.setOnClickListener(new View.OnClickListener() {

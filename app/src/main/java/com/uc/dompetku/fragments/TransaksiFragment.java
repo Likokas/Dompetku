@@ -16,12 +16,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.uc.dompetku.R;
 import com.uc.dompetku.activities.AdapterUser;
 import com.uc.dompetku.activities.DataActivity;
-import com.uc.dompetku.activities.myDbAdapter;
+import com.uc.dompetku.activities.RowLayoutAdapter;
+
+import com.uc.dompetku.model.DataUser;
+
 import java.util.ArrayList;
 
 
 public class TransaksiFragment extends Fragment {
-    private myDbAdapter db;
     ArrayList<AdapterUser> AdapterList;
     FloatingActionButton button_tambah;
     private RecyclerView mRecyclerView;

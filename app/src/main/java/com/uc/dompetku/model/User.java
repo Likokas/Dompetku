@@ -24,7 +24,7 @@ public class User{
         return jumlah;
     }
 
-    public String getCatatan() { return catatan}
+    public String getCatatan() { return catatan;}
 
     public String setTanggal(String tanggal) {
         return tanggal;
