@@ -15,17 +15,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.uc.dompetku.R;
 import com.uc.dompetku.activities.DataActivity;
+import com.uc.dompetku.activities.myDbAdapter;
 
 import java.util.ArrayList;
 
 
 public class TransaksiFragment extends Fragment {
-
+    private myDbAdapter db;
+    ArrayList<AdapterUser> AdapterList;
     FloatingActionButton button_tambah;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    ArrayList<AdapterUser> AdapterList;
+
 
     public TransaksiFragment() {
         // Required empty public constructor

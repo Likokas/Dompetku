@@ -1,72 +1,43 @@
 package com.uc.dompetku.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-public class User implements Parcelable {
+public class User{
     private String tanggal;
     private String kategori;
     private String jumlah;
+    private String catatan;
 
-    public User(String tanggal, String kategori, String jumlah) {
+    public User(String tanggal, String kategori, String jumlah, String catatan) {
         this.tanggal = tanggal;
         this.kategori = kategori;
         this.jumlah = jumlah;
+        this.catatan = catatan;
     }
-
-    public User(Parcel in) {
-        tanggal = in.readString();
-        kategori = in.readString();
-        jumlah = in.readString();
-    }
-
-    public static final Creator<User> CREATOR = new Creator<User>() {
-        @Override
-        public User createFromParcel(Parcel in) {
-            return new User(in);
-        }
-
-        @Override
-        public User[] newArray(int size) {
-            return new User[size];
-        }
-    };
-
-
-    public String getName() {
+    public String getTanggal() {
         return tanggal;
     }
 
-    public void setName(String name) {
-        this.tanggal = tanggal;
-    }
-
-    public String getAge() {
+    public String getKategori() {
         return kategori;
     }
 
-    public void setAge(String age) {
-        this.kategori= kategori;
-    }
-
-    public String getAddress() {
+    public String getJumlah() {
         return jumlah;
     }
 
-    public void setAddress(String address) {
-        this.jumlah = jumlah;
+    public String getCatatan() { return catatan}
+
+    public String setTanggal(String tanggal) {
+        return tanggal;
     }
 
-
-    @Override
-    public int describeContents() {
-        return 0;
+    public String setKategori(String kategori) {
+        return kategori;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(tanggal);
-        dest.writeString(kategori);
-        dest.writeString(jumlah);
+    public String setJumlah(String jumlah) { return jumlah; }
+
+    public String setCatatan(String catatan) { return catatan; }
+
+
     }
-}
+

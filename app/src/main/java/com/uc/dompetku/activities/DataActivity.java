@@ -9,6 +9,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toolbar;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.uc.dompetku.R;
@@ -18,6 +19,9 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
     TextInputLayout input_tanggal, input_kategori, input_jumlah, input_catatan;
     Button button_save;
     String tanggal, kategori, jumlah, catatan;
+    myDbAdapter helper;
+    Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +31,28 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
         input_kategori = findViewById(R.id.input_kategori);
         input_jumlah = findViewById(R.id.input_jumlah);
         input_catatan = findViewById(R.id.input_catatan);
-        button_save = findViewById(R.id.btn_save);
+
+
+
+        helper = new myDbAdapter(this);
+
 
         input_tanggal.getEditText().addTextChangedListener(this);
         input_kategori.getEditText().addTextChangedListener(this);
         input_jumlah.getEditText().addTextChangedListener(this);
         input_catatan.getEditText().addTextChangedListener(this);
+
+        toolbar = findViewById(R.id.toolbar);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DataActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         button_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
