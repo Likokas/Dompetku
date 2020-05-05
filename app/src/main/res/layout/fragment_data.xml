@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.DataFragment">
+    tools:context=".activities.DataActivity">
 
     <ImageView
         android:id="@+id/bg"
@@ -129,7 +129,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/title2"
+                android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginStart="52dp"
@@ -155,35 +155,35 @@
                 tools:ignore="PrivateResource" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btn_pemasukan"
                 android:layout_width="127dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="68dp"
                 android:text="@string/pemasukan_1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/title2" />
+                app:layout_constraintTop_toTopOf="@+id/title" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btn_pengeluaran"
                 android:layout_width="127dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="@string/pengeluaran_1"
-                app:layout_constraintStart_toEndOf="@+id/button"
+                app:layout_constraintStart_toEndOf="@+id/btn_pemasukan"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btn_hutang"
                 android:layout_width="127dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="80dp"
                 android:text="@string/hutang_1"
-                app:layout_constraintStart_toEndOf="@+id/button2"
+                app:layout_constraintStart_toEndOf="@+id/btn_pengeluaran"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/btn_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
