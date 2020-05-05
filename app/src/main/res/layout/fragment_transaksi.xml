@@ -5,12 +5,14 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.TransaksiFragment" >
+    tools:context=".fragments.TransaksiFragment"
+    tools:ignore="ExtraText">
 
     <ImageView
         android:id="@+id/bg"
         android:layout_width="413dp"
         android:layout_height="931dp"
+        android:contentDescription="@string/BG_view"
         android:src="@drawable/bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +27,8 @@
         android:layout_marginTop="16dp"
         android:src="@drawable/logo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/logo_dompetku" />
 
     <TextView
         android:id="@+id/title"
@@ -33,7 +36,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Transaksi"
+        android:text="@string/menu_transaksi"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -50,7 +53,8 @@
         android:src="@drawable/add"
         app:backgroundTint="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:focusable="true" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_transaksi"
