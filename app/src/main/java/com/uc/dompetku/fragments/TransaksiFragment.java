@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.uc.dompetku.R;
+import com.uc.dompetku.activities.AdapterUser;
 import com.uc.dompetku.activities.DataActivity;
 import com.uc.dompetku.activities.myDbAdapter;
-
 import java.util.ArrayList;
 
 
@@ -60,8 +60,8 @@ public class TransaksiFragment extends Fragment {
         AdapterList = DataUser.userdata;
         mRecyclerView = view.findViewById(R.id.rv_transaksi);
         mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new PrototypeAdapter(AdapterList);
+        mLayoutManager = new LinearLayoutManager(getActivity());
+        mAdapter = new RowLayoutAdapter(AdapterList);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
     }

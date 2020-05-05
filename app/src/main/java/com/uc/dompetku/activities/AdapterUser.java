@@ -1,27 +1,27 @@
 package com.uc.dompetku.activities;
 
 public class AdapterUser {
-    private String mName, mAge, mAddress;
+    private String mTanggal, mKategori, mJumlah;
 
-    public AdapterUser(String name, String age, String address){
-        mName = name;
-        mAge = age;
-        mAddress = address;
+    public AdapterUser(String tanggal, String kategori, String jumlah){
+        mTanggal = tanggal;
+        mKategori = kategori;
+        mJumlah = jumlah;
     }
 
     public AdapterUser(int name) {
 
     }
 
-    public String getmName() {
-        return mName;
+    public String getmTanggal() {
+        return mTanggal;
     }
 
-    public String getmAge() {
-        return mAge;
+    public String getmKategori() {
+        return mKategori;
     }
 
-    public String getmAddress() {
-        return mAddress;
+    public String getmJumlah() {
+        return mJumlah;
     }
 }
