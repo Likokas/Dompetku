@@ -54,8 +54,7 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
                 progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 DataUser.userdata.add(new AdapterUser(tanggal, kategori, jumlah));
                 Intent intent = new Intent(DataActivity.this, MainActivity.class);
-//                intent.putExtra("dataUser", orang);
-//                intent.putExtra("buttonfinish", "123");
+                intent.putExtra("ready", "filled");
                 startActivity(intent);
                 finish();
             }

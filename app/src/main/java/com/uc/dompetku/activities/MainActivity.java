@@ -64,8 +64,8 @@ import java.util.List;
          loadFragment(fragment);
          if(getIntent() != null){
              Intent intent = getIntent();
-             String kode = intent.getStringExtra("buttonfinish");
-             if(kode != null){
+             String code = intent.getStringExtra("ready");
+             if(code != null){
                  bottomNavigationView.setSelectedItemId(R.id.menu_transaksi);
                  fragment = new TransaksiFragment();
                  loadFragment(fragment);
