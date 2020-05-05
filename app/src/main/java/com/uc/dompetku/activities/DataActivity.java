@@ -1,14 +1,17 @@
 package com.uc.dompetku.activities;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toolbar;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.uc.dompetku.R;
@@ -20,6 +23,9 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
     Button button_save;
     String tanggal, kategori, jumlah, catatan;
 
+
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +36,15 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
         input_catatan = findViewById(R.id.input_catatan);
         button_save = findViewById(R.id.btn_save);
 
+
+
+
         input_tanggal.getEditText().addTextChangedListener(this);
         input_kategori.getEditText().addTextChangedListener(this);
         input_jumlah.getEditText().addTextChangedListener(this);
         input_catatan.getEditText().addTextChangedListener(this);
+
+
         button_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
