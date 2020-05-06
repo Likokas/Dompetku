@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -18,6 +19,7 @@ import android.widget.RadioGroup;
 import com.google.android.material.textfield.TextInputLayout;
 import com.uc.dompetku.R;
 import com.uc.dompetku.fragments.LaporanFragment;
+import com.uc.dompetku.fragments.TransaksiFragment;
 import com.uc.dompetku.model.DataUser;
 
 public class DataActivity extends AppCompatActivity implements TextWatcher {
@@ -27,6 +29,7 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
     RadioButton r_button;
     RadioGroup r_group;
     Button button_save;
+    myDbAdapter helper;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -44,11 +47,30 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
         r_group = findViewById(R.id.r_group);
         button_save = findViewById(R.id.btn_save);
 
+        helper = new myDbAdapter(this);
+
 
         input_tanggal.getEditText().addTextChangedListener(this);
         input_kategori.getEditText().addTextChangedListener(this);
         input_jumlah.getEditText().addTextChangedListener(this);
         input_catatan.getEditText().addTextChangedListener(this);
+
+
+//        button_save.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Handler handler = new Handler();
+//                handler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        long id = helper.insertData(tanggal,kategori,jumlah);
+//                        Intent intent = new Intent(DataActivity.this, TransaksiFragment.class);
+//                        startActivity(intent);
+//                    }
+//                    )};
+//
+//            }
+//        });
 
 
         button_save.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +88,7 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
                 intent.putExtra("ready", "filled");
                 startActivity(intent);
                 finish();
+
             }
         });
         Intent intent = new Intent(DataActivity.this, LaporanFragment.class);

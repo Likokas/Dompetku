@@ -21,13 +21,13 @@ public class myDbAdapter {
         myhelper = new myDbHelper(context);
     }
 
-    public long insertData(String name, String umur, String alamat)
+    public long insertData(String tanggal, String kategori, String jumlah)
     {
         SQLiteDatabase dbb = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(myDbHelper.TANGGAL, name);
-        contentValues.put(myDbHelper.KATEGORI, umur);
-        contentValues.put(myDbHelper.JUMLAH, alamat);
+        contentValues.put(myDbHelper.TANGGAL, tanggal);
+        contentValues.put(myDbHelper.KATEGORI, kategori);
+        contentValues.put(myDbHelper.JUMLAH, jumlah);
         long id = dbb.insert(myDbHelper.TABLE_NAME, null , contentValues);
         return id;
     }
