@@ -1,7 +1,9 @@
 package com.uc.dompetku.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +20,12 @@ import com.uc.dompetku.activities.AdapterUser;
 import com.uc.dompetku.activities.DataActivity;
 import com.uc.dompetku.activities.RowLayoutAdapter;
 
+import com.uc.dompetku.activities.User;
+import com.uc.dompetku.activities.myDbAdapter;
 import com.uc.dompetku.model.DataUser;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class TransaksiFragment extends Fragment {
@@ -29,6 +34,13 @@ public class TransaksiFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private myDbAdapter db;
+    private List<User> listStudent = new ArrayList<>();
+
+
+
+
+
 
 
     public TransaksiFragment() {
@@ -38,6 +50,7 @@ public class TransaksiFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
     }
 
