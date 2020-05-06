@@ -6,9 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
-import com.uc.dompetku.fragments.TransaksiFragment;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,13 +18,15 @@ public class myDbAdapter {
         myhelper = new myDbHelper(context);
     }
 
-    public long insertData(String name, String umur, String alamat)
+    public long insertData(String tanggal, String kategori, String jumlah, String catatan, String choice)
     {
         SQLiteDatabase dbb = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(myDbHelper.TANGGAL, name);
-        contentValues.put(myDbHelper.KATEGORI, umur);
-        contentValues.put(myDbHelper.JUMLAH, alamat);
+        contentValues.put(myDbHelper.TANGGAL, tanggal);
+        contentValues.put(myDbHelper.KATEGORI, kategori);
+        contentValues.put(myDbHelper.JUMLAH, jumlah);
+        contentValues.put(myDbHelper.CATATAN, catatan);
+        contentValues.put(myDbHelper.CHOICE, choice);
         long id = dbb.insert(myDbHelper.TABLE_NAME, null , contentValues);
         return id;
     }
@@ -42,8 +41,8 @@ public class myDbAdapter {
 
         if (cursor.moveToFirst()) {
             do {
-                Log.e("name", cursor.getString(1));
-                User user = new User(cursor.getString(1),cursor.getString(3),cursor.getString(2));
+                Log.e("tanggal", cursor.getString(1));
+                User user = new User(cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5));
 
                 users.add(user);
             } while (cursor.moveToNext());
@@ -64,8 +63,10 @@ public class myDbAdapter {
         private static final String TANGGAL = "tanggal";
         private static final String KATEGORI = "kategori";
         private static final String JUMLAH = "jumlah";
+        private static final String CATATAN = "catatan";
+        private static final String CHOICE = "choice";
         private static final String CREATE_TABLE = "CREATE TABLE "+TABLE_NAME+
-                " ("+UID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+TANGGAL+" VARCHAR(255) ,"+ KATEGORI+" VARCHAR(255), "+JUMLAH+" VARCHAR(225));";
+                " ("+UID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+TANGGAL+" VARCHAR(255) ,"+ KATEGORI+" VARCHAR(255), "+JUMLAH+" VARCHAR(225), "+CATATAN+" VARCHAR(225), "+CHOICE+" VARCHAR(225));";
         private static final String DROP_TABLE ="DROP TABLE IF EXISTS "+TABLE_NAME;
         private Context context;
 

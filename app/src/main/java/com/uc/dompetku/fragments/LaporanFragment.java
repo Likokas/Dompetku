@@ -73,25 +73,9 @@ public class LaporanFragment extends Fragment {
 
     }
 
-    public void uSementara(){
-
-    }
-
-    public void uPemasukan(){
-
-    }
-
-    public void uPengeluaran(){
-
-    }
-
     public int uTotal(){
         int hasil = sementara + pemasukan - pengeluaran;
         return hasil;
-    }
-
-    public void uHutang(){
-
     }
 
     public int uTotalAkhir(){

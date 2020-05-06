@@ -1,13 +1,14 @@
 package com.uc.dompetku.activities;
 
 public class User {
-    private String tanggal, kategori;
-    private String jumlah;
+    private String tanggal, kategori, jumlah, catatan, choice;
 
-    public User( String tanggal, String kategori, String jumlah) {
+    public User( String tanggal, String kategori, String jumlah, String catatan, String choice) {
         this.tanggal = tanggal;
         this.kategori = kategori;
         this.jumlah = jumlah;
+        this.catatan = catatan;
+        this.choice = choice;
     }
 
 //    protected User(Parcel in) {
@@ -36,6 +37,10 @@ public class User {
 
     public String getJumlah() { return jumlah; }
 
+    public String getCatatan() { return catatan; }
+
+    public String getChoice() { return choice; }
+
 //    @Override
 //    public int describeContents() {
 //        return 0;
@@ -58,6 +63,14 @@ public class User {
 
     public String setJumlah(String jumlah) {
         return jumlah;
+    }
+
+    public String setCatatan(String catatan) {
+        return catatan;
+    }
+
+    public String setChoice(String choice) {
+        return choice;
     }
 }
 
