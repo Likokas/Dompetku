@@ -49,12 +49,16 @@ public class LaporanFragment extends Fragment {
         u_total = view.findViewById(R.id.uang_total);
         u_hutang = view.findViewById(R.id.uang_hutang);
         u_total_akhir = view.findViewById(R.id.uang_total_akhir);
-        for(int i=0; i<DataUser.userdata.size(); i++){
-            pengeluaran += Integer.parseInt(DataUser.userdata.get(i).getmJumlah());
-//            pemasukan += Integer.parseInt(DataUser.userdata.get(i).getmKategori());
-//            pengeluaran += Integer.parseInt(DataUser.userdata.get(i).getmJumlah());
-        }
 
+        for(int i=0; i<DataUser.userdata.size(); i++) {
+            if (DataUser.userdata.get(i).getmChoice().equalsIgnoreCase("pemasukan")) {
+                pemasukan = Integer.parseInt(DataUser.userdata.get(i).getmJumlah());
+            } else if (DataUser.userdata.get(i).getmChoice().equalsIgnoreCase("pengeluaran")) {
+                pengeluaran = Integer.parseInt(DataUser.userdata.get(i).getmJumlah());
+            } else if (DataUser.userdata.get(i).getmChoice().equalsIgnoreCase("hutang")) {
+                hutang = Integer.parseInt(DataUser.userdata.get(i).getmJumlah());
+            }
+        }
         total = uTotal();
         totalakhir = uTotalAkhir();
 

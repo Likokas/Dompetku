@@ -9,9 +9,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toolbar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.uc.dompetku.R;
@@ -20,9 +22,11 @@ import com.uc.dompetku.model.DataUser;
 
 public class DataActivity extends AppCompatActivity implements TextWatcher {
     TextInputLayout input_tanggal, input_kategori, input_jumlah, input_catatan;
-    Button button_save;
     String tanggal, kategori, jumlah, catatan;
-
+    RadioButton r_pemasukan, r_pengeluaran, r_hutang;
+    RadioButton r_button;
+    RadioGroup r_group;
+    Button button_save;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -34,9 +38,11 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
         input_kategori = findViewById(R.id.input_kategori);
         input_jumlah = findViewById(R.id.input_jumlah);
         input_catatan = findViewById(R.id.input_catatan);
+        r_pemasukan = findViewById(R.id.radio_pemasukan);
+        r_pengeluaran = findViewById(R.id.radio_pengeluaran);
+        r_hutang = findViewById(R.id.radio_hutang);
+        r_group = findViewById(R.id.r_group);
         button_save = findViewById(R.id.btn_save);
-
-
 
 
         input_tanggal.getEditText().addTextChangedListener(this);
@@ -48,11 +54,14 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
         button_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int selectedId = r_group.getCheckedRadioButtonId();
+                r_button = (RadioButton) findViewById(selectedId);
+                String choice = r_button.getText().toString();
                 ProgressDialog progressDialog = new ProgressDialog(DataActivity.this);
                 progressDialog.show();
                 progressDialog.setContentView(R.layout.screen_loading);
                 progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-                DataUser.userdata.add(new AdapterUser(tanggal, kategori, jumlah));
+                DataUser.userdata.add(new AdapterUser(tanggal, kategori, jumlah, catatan, choice));
                 Intent intent = new Intent(DataActivity.this, MainActivity.class);
                 intent.putExtra("ready", "filled");
                 startActivity(intent);
