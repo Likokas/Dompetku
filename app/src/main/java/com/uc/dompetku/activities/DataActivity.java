@@ -81,8 +81,9 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
         tanggal = input_tanggal.getEditText().getText().toString().trim();
         kategori = input_kategori.getEditText().getText().toString().trim();
         jumlah = input_jumlah.getEditText().getText().toString().trim();
+        r_button = (RadioButton) findViewById(selectedId);
 
-        if (!tanggal.isEmpty() && !kategori.isEmpty() && !jumlah.isEmpty()) {
+        if (!tanggal.isEmpty() && !kategori.isEmpty() && !jumlah.isEmpty() && !r_group.is) {
             button_save.setEnabled(true);
         }
         else{
