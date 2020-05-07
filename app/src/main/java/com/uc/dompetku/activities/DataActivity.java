@@ -47,7 +47,7 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
         button_save = findViewById(R.id.btn_save);
         transaksiHelper = TransaksiHelper.getInstance(DataActivity.this);
 
-        helper = new myDbAdapter(this);
+
 
 
         input_tanggal.getEditText().addTextChangedListener(this);
