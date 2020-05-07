@@ -1,7 +1,6 @@
 package com.uc.dompetku.fragments;
 
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.uc.dompetku.activities.AdapterUser;
-import com.uc.dompetku.activities.DataActivity;
-import com.uc.dompetku.activities.RowLayoutAdapter;
-
 import com.uc.dompetku.R;
-import com.uc.dompetku.model.DataUser;
+import com.uc.dompetku.db.TransaksiHelper;
+import com.uc.dompetku.model.User;
+
+import java.util.ArrayList;
 
 
 public class LaporanFragment extends Fragment {
@@ -33,6 +31,8 @@ public class LaporanFragment extends Fragment {
     int total = 0;
     int hutang = 0;
     int totalakhir = 0;
+    private ArrayList<User> listsave;
+    private TransaksiHelper transaksiHelper;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,14 +49,16 @@ public class LaporanFragment extends Fragment {
         u_total = view.findViewById(R.id.uang_total);
         u_hutang = view.findViewById(R.id.uang_hutang);
         u_total_akhir = view.findViewById(R.id.uang_total_akhir);
+        transaksiHelper = new TransaksiHelper(getActivity());
+        listsave = transaksiHelper.allData();
 
-        for(int i=0; i<DataUser.userdata.size(); i++) {
-            if (DataUser.userdata.get(i).getmChoice().equalsIgnoreCase("pemasukan")) {
-                pemasukan = Integer.parseInt(DataUser.userdata.get(i).getmJumlah());
-            } else if (DataUser.userdata.get(i).getmChoice().equalsIgnoreCase("pengeluaran")) {
-                pengeluaran = Integer.parseInt(DataUser.userdata.get(i).getmJumlah());
-            } else if (DataUser.userdata.get(i).getmChoice().equalsIgnoreCase("hutang")) {
-                hutang = Integer.parseInt(DataUser.userdata.get(i).getmJumlah());
+        for(int i=0; i<listsave.size(); i++) {
+            if (listsave.get(i).getmChoice().equalsIgnoreCase("pemasukan")) {
+                pemasukan += Integer.parseInt(listsave.get(i).getmJumlah());
+            } else if (listsave.get(i).getmChoice().equalsIgnoreCase("pengeluaran")) {
+                pengeluaran += Integer.parseInt(listsave.get(i).getmJumlah());
+            } else if (listsave.get(i).getmChoice().equalsIgnoreCase("hutang")) {
+                hutang += Integer.parseInt(listsave.get(i).getmJumlah());
             }
         }
         total = uTotal();
