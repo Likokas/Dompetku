@@ -1,5 +1,6 @@
 package com.uc.dompetku.activities;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,20 +24,22 @@ public class RowLayoutAdapter extends RecyclerView.Adapter<RowLayoutAdapter.Exam
         public TextView mTextView3;
         public CardView cardView;
 
+
+
         public ExampleViewHolder(@NonNull View itemView) {
             super(itemView);
             mTextView1 = itemView.findViewById(R.id.tanggal_rv);
             mTextView2 = itemView.findViewById(R.id.kategori_rv);
             mTextView3 = itemView.findViewById(R.id.jumlah_rv);
-            cardView = itemView.findViewById(R.id.cardview);
-            cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    openDialog();
-                }
-            });
+
+
+
+
+            };
         }
-    }
+
+
+
 
     public static void openDialog(){
         ExampleDialog exampleDialog = new ExampleDialog();

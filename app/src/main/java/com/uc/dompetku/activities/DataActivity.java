@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -58,10 +59,29 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
         autoD8.setText(date);
 
 
+
+
         input_tanggal.getEditText().addTextChangedListener(this);
         input_kategori.getEditText().addTextChangedListener(this);
         input_jumlah.getEditText().addTextChangedListener(this);
         input_catatan.getEditText().addTextChangedListener(this);
+
+
+//        button_save.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Handler handler = new Handler();
+//                handler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        long id = helper.insertData(tanggal,kategori,jumlah);
+//                        Intent intent = new Intent(DataActivity.this, TransaksiFragment.class);
+//                        startActivity(intent);
+//                    }
+//                    )};
+//
+//            }
+//        });
 
 
         button_save.setOnClickListener(new View.OnClickListener() {

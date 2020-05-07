@@ -5,19 +5,26 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.uc.dompetku.R;
+import com.uc.dompetku.activities.ExampleDialog;
 import com.uc.dompetku.db.TransaksiHelper;
 import com.uc.dompetku.model.User;
 import com.uc.dompetku.activities.DataActivity;
 import com.uc.dompetku.activities.RowLayoutAdapter;
+import com.uc.dompetku.utils.ItemClickSupport;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -32,6 +39,13 @@ public class TransaksiFragment extends Fragment {
     private TransaksiHelper transaksiHelper;
 
 
+
+
+
+
+
+
+
     public TransaksiFragment() {
         // Required empty public constructor
     }
@@ -39,6 +53,8 @@ public class TransaksiFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
     }
 
     @Override
@@ -68,5 +84,16 @@ public class TransaksiFragment extends Fragment {
         mAdapter = new RowLayoutAdapter(listsave);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+
+        ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                openDialog();
+            }
+        });
+    }
+    public void openDialog(){
+        ExampleDialog exampleDialog = new ExampleDialog();
+        exampleDialog.show(getActivity().getSupportFragmentManager(),"Dialog");
     }
 }
