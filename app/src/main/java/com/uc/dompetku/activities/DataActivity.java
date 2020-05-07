@@ -7,7 +7,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -27,9 +26,9 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class DataActivity extends AppCompatActivity implements TextWatcher {
-    TextInputLayout input_tanggal, input_kategori, input_jumlah, input_catatan;
-    String tanggal, kategori, jumlah, catatan;
-    EditText autoD8;
+    TextInputLayout input_kategori, input_jumlah, input_catatan;
+    String tanggal, kategori, jumlah, catatan, date;
+    EditText input_tanggal;
     RadioButton r_pemasukan, r_pengeluaran, r_hutang;
     RadioButton r_button;
     RadioGroup r_group;
@@ -42,7 +41,6 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_data);
-        autoD8 = findViewById(R.id.autoD8);
         input_tanggal = findViewById(R.id.input_tanggal);
         input_kategori = findViewById(R.id.input_kategori);
         input_jumlah = findViewById(R.id.input_jumlah);
@@ -55,34 +53,13 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
         transaksiHelper = TransaksiHelper.getInstance(DataActivity.this);
 
         SimpleDateFormat dateF = new SimpleDateFormat("EEE, d MMM yyyy", Locale.getDefault());
-        String date = dateF.format(Calendar.getInstance().getTime());
-        autoD8.setText(date);
+        date = dateF.format(Calendar.getInstance().getTime());
+        input_tanggal.setText(date);
 
 
-
-
-        input_tanggal.getEditText().addTextChangedListener(this);
         input_kategori.getEditText().addTextChangedListener(this);
         input_jumlah.getEditText().addTextChangedListener(this);
         input_catatan.getEditText().addTextChangedListener(this);
-
-
-//        button_save.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Handler handler = new Handler();
-//                handler.postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        long id = helper.insertData(tanggal,kategori,jumlah);
-//                        Intent intent = new Intent(DataActivity.this, TransaksiFragment.class);
-//                        startActivity(intent);
-//                    }
-//                    )};
-//
-//            }
-//        });
-
 
         button_save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +72,6 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
                 progressDialog.setContentView(R.layout.screen_loading);
                 progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 User user = new User(tanggal, kategori, jumlah, catatan, choice);
-//                DataUser.userdata.add(user);
                 long result = transaksiHelper.insertData(user);
                 if(result > 0) {
                     Intent intent = new Intent(DataActivity.this, MainActivity.class);
@@ -118,11 +94,12 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-        tanggal = input_tanggal.getEditText().getText().toString().trim();
+        tanggal = input_tanggal.getText().toString().trim();
         kategori = input_kategori.getEditText().getText().toString().trim();
         jumlah = input_jumlah.getEditText().getText().toString().trim();
+        catatan = input_catatan.getEditText().getText().toString().trim();
 
-        if (!tanggal.isEmpty() && !kategori.isEmpty() && !jumlah.isEmpty()) {
+        if (!tanggal.isEmpty() && !kategori.isEmpty() && !jumlah.isEmpty() && !catatan.isEmpty()) {
             button_save.setEnabled(true);
         }
         else{
