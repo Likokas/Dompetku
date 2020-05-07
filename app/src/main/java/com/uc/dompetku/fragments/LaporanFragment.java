@@ -52,7 +52,7 @@ public class LaporanFragment extends Fragment {
         transaksiHelper = new TransaksiHelper(getActivity());
         listsave = transaksiHelper.allData();
 
-        for(int i=0; i<listsave.size(); i++) {
+        for (int i = 0; i < listsave.size(); i++) {
             if (listsave.get(i).getmChoice().equalsIgnoreCase("pemasukan")) {
                 pemasukan += Integer.parseInt(listsave.get(i).getmJumlah());
             } else if (listsave.get(i).getmChoice().equalsIgnoreCase("pengeluaran")) {
@@ -70,30 +70,11 @@ public class LaporanFragment extends Fragment {
         u_total.setText(String.valueOf(("Rp. " + total)));
         u_hutang.setText(String.valueOf(("Rp. " + hutang)));
         u_total_akhir.setText(String.valueOf(("Rp. " + totalakhir)));
-
-
-
-    }
-
-    public void uSementara(){
-
-    }
-
-    public void uPemasukan(){
-
-    }
-
-    public void uPengeluaran(){
-
     }
 
     public int uTotal(){
         int hasil = sementara + pemasukan - pengeluaran;
         return hasil;
-    }
-
-    public void uHutang(){
-
     }
 
     public int uTotalAkhir(){

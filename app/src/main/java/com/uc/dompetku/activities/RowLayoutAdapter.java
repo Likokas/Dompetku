@@ -1,13 +1,11 @@
 package com.uc.dompetku.activities;
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.uc.dompetku.R;
@@ -22,8 +20,6 @@ public class RowLayoutAdapter extends RecyclerView.Adapter<RowLayoutAdapter.Exam
         public TextView mTextView1;
         public TextView mTextView2;
         public TextView mTextView3;
-        public CardView cardView;
-
 
 
         public ExampleViewHolder(@NonNull View itemView) {
@@ -31,27 +27,12 @@ public class RowLayoutAdapter extends RecyclerView.Adapter<RowLayoutAdapter.Exam
             mTextView1 = itemView.findViewById(R.id.tanggal_rv);
             mTextView2 = itemView.findViewById(R.id.kategori_rv);
             mTextView3 = itemView.findViewById(R.id.jumlah_rv);
-
-
-
-
-            };
         }
-
-
-
-
-    public static void openDialog(){
-        ExampleDialog exampleDialog = new ExampleDialog();
     }
-
-
 
     public RowLayoutAdapter(ArrayList<User> adapterList){
         mAdapterList = adapterList;
     }
-
-
 
     @NonNull
     @Override
@@ -66,7 +47,7 @@ public class RowLayoutAdapter extends RecyclerView.Adapter<RowLayoutAdapter.Exam
         User currentItem = mAdapterList.get(position);
         holder.mTextView1.setText(currentItem.getmTanggal());
         holder.mTextView2.setText(currentItem.getmKategori());
-        holder.mTextView3.setText("-Rp. " + currentItem.getmJumlah());
+        holder.mTextView3.setText("Rp. " + currentItem.getmJumlah());
     }
 
     @Override
