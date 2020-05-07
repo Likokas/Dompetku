@@ -11,6 +11,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -20,9 +21,14 @@ import com.uc.dompetku.R;
 import com.uc.dompetku.db.TransaksiHelper;
 import com.uc.dompetku.model.User;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 public class DataActivity extends AppCompatActivity implements TextWatcher {
     TextInputLayout input_tanggal, input_kategori, input_jumlah, input_catatan;
     String tanggal, kategori, jumlah, catatan;
+    EditText autoD8;
     RadioButton r_pemasukan, r_pengeluaran, r_hutang;
     RadioButton r_button;
     RadioGroup r_group;
@@ -35,6 +41,7 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_data);
+        autoD8 = findViewById(R.id.autoD8);
         input_tanggal = findViewById(R.id.input_tanggal);
         input_kategori = findViewById(R.id.input_kategori);
         input_jumlah = findViewById(R.id.input_jumlah);
@@ -45,6 +52,10 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
         r_group = findViewById(R.id.r_group);
         button_save = findViewById(R.id.btn_save);
         transaksiHelper = TransaksiHelper.getInstance(DataActivity.this);
+
+        SimpleDateFormat dateF = new SimpleDateFormat("EEE, d MMM yyyy", Locale.getDefault());
+        String date = dateF.format(Calendar.getInstance().getTime());
+        autoD8.setText(date);
 
 
         input_tanggal.getEditText().addTextChangedListener(this);

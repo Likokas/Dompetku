@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.uc.dompetku.R;
@@ -20,14 +21,28 @@ public class RowLayoutAdapter extends RecyclerView.Adapter<RowLayoutAdapter.Exam
         public TextView mTextView1;
         public TextView mTextView2;
         public TextView mTextView3;
+        public CardView cardView;
 
         public ExampleViewHolder(@NonNull View itemView) {
             super(itemView);
             mTextView1 = itemView.findViewById(R.id.tanggal_rv);
             mTextView2 = itemView.findViewById(R.id.kategori_rv);
             mTextView3 = itemView.findViewById(R.id.jumlah_rv);
+            cardView = itemView.findViewById(R.id.cardview);
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openDialog();
+                }
+            });
         }
     }
+
+    public static void openDialog(){
+        ExampleDialog exampleDialog = new ExampleDialog();
+    }
+
+
 
     public RowLayoutAdapter(ArrayList<User> adapterList){
         mAdapterList = adapterList;
@@ -49,11 +64,13 @@ public class RowLayoutAdapter extends RecyclerView.Adapter<RowLayoutAdapter.Exam
         holder.mTextView1.setText(currentItem.getmTanggal());
         holder.mTextView2.setText(currentItem.getmKategori());
         holder.mTextView3.setText("-Rp. " + currentItem.getmJumlah());
-
     }
 
     @Override
     public int getItemCount() {
         return mAdapterList.size();
     }
+
+
+
 }
