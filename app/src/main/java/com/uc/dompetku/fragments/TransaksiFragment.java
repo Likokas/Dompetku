@@ -1,9 +1,7 @@
 package com.uc.dompetku.fragments;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,26 +14,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.uc.dompetku.R;
-import com.uc.dompetku.activities.AdapterUser;
+import com.uc.dompetku.db.TransaksiHelper;
+import com.uc.dompetku.model.User;
 import com.uc.dompetku.activities.DataActivity;
 import com.uc.dompetku.activities.RowLayoutAdapter;
 
-import com.uc.dompetku.activities.User;
-import com.uc.dompetku.activities.myDbAdapter;
-import com.uc.dompetku.model.DataUser;
-
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class TransaksiFragment extends Fragment {
-    ArrayList<AdapterUser> AdapterList;
+//    ArrayList<User> AdapterList;
     FloatingActionButton button_tambah;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private myDbAdapter db;
-    private List<User> listStudent = new ArrayList<>();
+    private ArrayList<User> listsave;
+    private TransaksiHelper transaksiHelper;
 
 
     public TransaksiFragment() {
@@ -57,6 +51,9 @@ public class TransaksiFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        transaksiHelper = new TransaksiHelper(getActivity());
+        listsave = transaksiHelper.allData();
+
         button_tambah = view.findViewById(R.id.button_add);
         button_tambah.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,11 +62,10 @@ public class TransaksiFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        AdapterList = DataUser.userdata;
         mRecyclerView = view.findViewById(R.id.rv_transaksi);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getActivity());
-        mAdapter = new RowLayoutAdapter(AdapterList);
+        mAdapter = new RowLayoutAdapter(listsave);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
     }

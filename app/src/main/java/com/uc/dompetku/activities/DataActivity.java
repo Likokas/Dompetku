@@ -9,16 +9,16 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.uc.dompetku.R;
-import com.uc.dompetku.fragments.LaporanFragment;
-import com.uc.dompetku.model.DataUser;
+import com.uc.dompetku.db.TransaksiHelper;
+import com.uc.dompetku.model.User;
 
 public class DataActivity extends AppCompatActivity implements TextWatcher {
     TextInputLayout input_tanggal, input_kategori, input_jumlah, input_catatan;
@@ -27,6 +27,7 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
     RadioButton r_button;
     RadioGroup r_group;
     Button button_save;
+    private TransaksiHelper transaksiHelper;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -43,6 +44,7 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
         r_hutang = findViewById(R.id.radio_hutang);
         r_group = findViewById(R.id.r_group);
         button_save = findViewById(R.id.btn_save);
+        transaksiHelper = TransaksiHelper.getInstance(DataActivity.this);
 
 
         input_tanggal.getEditText().addTextChangedListener(this);
@@ -61,14 +63,21 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
                 progressDialog.show();
                 progressDialog.setContentView(R.layout.screen_loading);
                 progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-                DataUser.userdata.add(new AdapterUser(tanggal, kategori, jumlah, catatan, choice));
-                Intent intent = new Intent(DataActivity.this, MainActivity.class);
-                intent.putExtra("ready", "filled");
-                startActivity(intent);
-                finish();
+                User user = new User(tanggal, kategori, jumlah, catatan, choice);
+//                DataUser.userdata.add(user);
+                long result = transaksiHelper.insertData(user);
+                if(result > 0) {
+                    Intent intent = new Intent(DataActivity.this, MainActivity.class);
+                    intent.putExtra("ready", "filled");
+                    startActivity(intent);
+                    finish();
+                }
+                else{
+                    progressDialog.dismiss();
+                    Toast.makeText(DataActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                }
             }
         });
-        Intent intent = new Intent(DataActivity.this, LaporanFragment.class);
     }
 
     @Override

@@ -9,11 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.uc.dompetku.R;
+import com.uc.dompetku.model.User;
 
 import java.util.ArrayList;
 
 public class RowLayoutAdapter extends RecyclerView.Adapter<RowLayoutAdapter.ExampleViewHolder> {
-    private ArrayList<AdapterUser> mAdapterList;
+    private ArrayList<User> mAdapterList;
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder{
         public TextView mTextView1;
@@ -28,7 +29,7 @@ public class RowLayoutAdapter extends RecyclerView.Adapter<RowLayoutAdapter.Exam
         }
     }
 
-    public RowLayoutAdapter(ArrayList<AdapterUser> adapterList){
+    public RowLayoutAdapter(ArrayList<User> adapterList){
         mAdapterList = adapterList;
     }
 
@@ -44,7 +45,7 @@ public class RowLayoutAdapter extends RecyclerView.Adapter<RowLayoutAdapter.Exam
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        AdapterUser currentItem = mAdapterList.get(position);
+        User currentItem = mAdapterList.get(position);
         holder.mTextView1.setText(currentItem.getmTanggal());
         holder.mTextView2.setText(currentItem.getmKategori());
         holder.mTextView3.setText("-Rp. " + currentItem.getmJumlah());
