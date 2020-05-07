@@ -39,13 +39,6 @@ public class TransaksiFragment extends Fragment {
     private TransaksiHelper transaksiHelper;
 
 
-
-
-
-
-
-
-
     public TransaksiFragment() {
         // Required empty public constructor
     }
@@ -53,8 +46,6 @@ public class TransaksiFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Override
@@ -88,6 +79,7 @@ public class TransaksiFragment extends Fragment {
         ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                User.getcatatan = listsave.get(position).getmCatatan();
                 openDialog();
             }
         });
