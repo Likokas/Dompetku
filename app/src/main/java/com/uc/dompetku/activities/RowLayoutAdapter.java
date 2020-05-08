@@ -54,7 +54,4 @@ public class RowLayoutAdapter extends RecyclerView.Adapter<RowLayoutAdapter.Exam
     public int getItemCount() {
         return mAdapterList.size();
     }
-
-
-
 }
