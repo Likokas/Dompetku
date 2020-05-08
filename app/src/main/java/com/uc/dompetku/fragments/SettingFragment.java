@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.uc.dompetku.R;
+import com.uc.dompetku.activities.CautionDialog;
+import com.uc.dompetku.activities.ExampleDialog;
 import com.uc.dompetku.db.DatabaseHelper;
 import com.uc.dompetku.db.TransaksiHelper;
 import com.uc.dompetku.model.User;
@@ -49,10 +51,13 @@ public class SettingFragment extends Fragment {
         btn_clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                transaksiHelper = new TransaksiHelper(getActivity());
-                listsave = transaksiHelper.allData();
-                transaksiHelper.deleteAll();
+                openDialog();
             }
         });
+    }
+
+    private void openDialog() {
+        CautionDialog cautionDialog = new CautionDialog();
+        cautionDialog.show(getActivity().getSupportFragmentManager(),"Caution");
     }
 }
