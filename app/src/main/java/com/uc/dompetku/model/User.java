@@ -2,7 +2,7 @@ package com.uc.dompetku.model;
 
 public class User {
     private String mId, mTanggal, mKategori, mJumlah, mCatatan, mChoice;
-    public static String getcatatan;
+    public static String getcatatan, getid;
 
     public User( String tanggal, String kategori, String jumlah, String catatan, String choice){
         mTanggal = tanggal;
