@@ -29,6 +29,7 @@ public class ExampleDialog extends AppCompatDialogFragment {
     private ArrayList<User> listsave;
     private TransaksiHelper transaksiHelper;
     private String note, id;
+    private int test;
 
     String tanggal, kategori, jumlah, catatan, date;
 
