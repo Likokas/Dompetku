@@ -1,5 +1,6 @@
 package com.uc.dompetku.fragments;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ public class SettingFragment extends Fragment {
     Button btn_clear;
     private ArrayList<User> listsave;
     private TransaksiHelper transaksiHelper;
+
 
     public SettingFragment() {
         // Required empty public constructor
