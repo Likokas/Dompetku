@@ -129,7 +129,7 @@
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginStart="52dp"
+                android:layout_marginStart="60dp"
                 android:layout_marginTop="12dp"
                 android:text="@string/transaksi_data"
                 android:textColor="@android:color/white"
@@ -139,7 +139,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+                android:id="@+id/back"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="#00FFFFFF"
@@ -157,6 +157,7 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="32dp"
                 android:background="@drawable/button"
+                android:enabled="false"
                 android:text="@string/simpan"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -170,7 +171,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/toolbar">
+                app:layout_constraintTop_toBottomOf="@+id/back">
 
                 <RadioButton
                     android:id="@+id/radio_pemasukan"
