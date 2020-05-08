@@ -1,5 +1,6 @@
 package com.uc.dompetku.fragments;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import com.uc.dompetku.db.DatabaseHelper;
 
 public class SettingFragment extends Fragment {
     Button btn_clear;
+
 
     public SettingFragment() {
         // Required empty public constructor
@@ -41,8 +43,7 @@ public class SettingFragment extends Fragment {
         btn_clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                DatabaseHelper databaseHelper = new DatabaseHelper(this);
-//                context.deleteDatabase(databaseHelper db);
+
             }
         });
     }
