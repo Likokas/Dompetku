@@ -3,7 +3,11 @@ package com.uc.dompetku.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
 import com.uc.dompetku.db.DatabaseConstruct.TableColumns;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 import static com.uc.dompetku.db.DatabaseConstruct.TABLE_TRANSAKSI;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -33,5 +37,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_TRANSAKSI);
         onCreate(db);
+    }
+    public Integer deleteName(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(CREATE_TABLE_TRANSAKSI, "COLUMN_ID = ?", new String[] {String.valueOf(deleteName())});
     }
 }
