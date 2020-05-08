@@ -43,40 +43,40 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/rad"
-        android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="150dp"
-        android:background="@drawable/gradient"
+        android:id="@+id/hari"
+        android:layout_width="125dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/left"
         android:minWidth="125dp"
         android:text="@string/hari_ini"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/minggu"
         android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/gradient"
+        android:layout_height="30dp"
+        android:background="@drawable/left"
         android:minWidth="125dp"
         android:text="Minggu ini"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toStartOf="@+id/bulan"
+        app:layout_constraintStart_toEndOf="@+id/hari" />
 
     <Button
         android:id="@+id/bulan"
-        android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="150dp"
-        android:background="@drawable/gradient"
+        android:layout_width="125dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/right"
         android:minWidth="125dp"
         android:text="Bulan ini"
-        app:layout_constraintEnd_toStartOf="@+id/minggu"
-        app:layout_constraintStart_toEndOf="@+id/rad"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/current"
@@ -117,12 +117,12 @@
         android:layout_width="0dp"
         android:layout_height="262dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/gradient"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bulan" />
+        app:layout_constraintTop_toBottomOf="@+id/current" />
 
     <TextView
         android:id="@+id/text1"
@@ -134,7 +134,7 @@
         android:textColor="?attr/actionModeSplitBackground"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rad" />
+        app:layout_constraintTop_toBottomOf="@+id/hari" />
 
     <TextView
         android:id="@+id/uang_sementara"
@@ -147,7 +147,7 @@
         android:textColor="?attr/actionModeSplitBackground"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rad" />
+        app:layout_constraintTop_toBottomOf="@+id/hari" />
 
     <TextView
         android:id="@+id/text2"
@@ -254,7 +254,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:text="Total Uang Akhir"
         android:textColor="?attr/actionModeSplitBackground"
         android:textSize="14sp"
@@ -265,7 +265,7 @@
         android:id="@+id/uang_total_akhir"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="40dp"
         android:text="Rp. -"
         android:textAlignment="textEnd"
@@ -275,12 +275,21 @@
         app:layout_constraintTop_toBottomOf="@+id/uang_hutang" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/line1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="_____________________________________________"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uang_pengeluaran" />
+
+    <TextView
+        android:id="@+id/line2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="_____________________________________________"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uang_hutang" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

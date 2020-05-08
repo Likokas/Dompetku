@@ -15,7 +15,10 @@ import com.uc.dompetku.R;
 import com.uc.dompetku.db.TransaksiHelper;
 import com.uc.dompetku.model.User;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 
 
 public class LaporanFragment extends Fragment {
@@ -24,7 +27,8 @@ public class LaporanFragment extends Fragment {
     }
 
     private ProgressBar progressBar;
-    public TextView u_sementara, u_pemasukan, u_pengeluaran, u_total, u_hutang, u_total_akhir;
+    public TextView u_sementara, u_pemasukan, u_pengeluaran, u_total, u_hutang, u_total_akhir, datenow;
+    String date;
     int sementara = 0;
     int pemasukan = 0;
     int pengeluaran = 0;
@@ -49,8 +53,14 @@ public class LaporanFragment extends Fragment {
         u_total = view.findViewById(R.id.uang_total);
         u_hutang = view.findViewById(R.id.uang_hutang);
         u_total_akhir = view.findViewById(R.id.uang_total_akhir);
+        datenow = view.findViewById(R.id.current);
         transaksiHelper = new TransaksiHelper(getActivity());
         listsave = transaksiHelper.allData();
+
+        SimpleDateFormat dateF = new SimpleDateFormat("EEE, d MMM yyyy", Locale.getDefault());
+        date = dateF.format(Calendar.getInstance().getTime());
+        datenow.setText(date);
+
 
         for (int i = 0; i < listsave.size(); i++) {
             if (listsave.get(i).getmChoice().equalsIgnoreCase("pemasukan")) {
