@@ -37,8 +37,6 @@ public class ExampleDialog extends AppCompatDialogFragment {
     public Dialog onCreateDialog( Bundle savedInstanceState) {
         note = User.getcatatan;
 
-
-
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Catatan")
                 .setMessage(note)
@@ -49,8 +47,9 @@ public class ExampleDialog extends AppCompatDialogFragment {
                         listsave = transaksiHelper.allData();
                         id = User.getid;
                         transaksiHelper.delete(id);
-                        
-
+                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                        intent.putExtra("ready", "filled");
+                        startActivity(intent);
                     }
                 })
                 .setPositiveButton("Close", new DialogInterface.OnClickListener() {

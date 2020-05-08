@@ -27,7 +27,7 @@ import java.util.Locale;
 
 public class DataActivity extends AppCompatActivity implements TextWatcher {
     TextInputLayout input_kategori, input_jumlah, input_catatan;
-    String tanggal, kategori, jumlah, catatan, date;
+    String tanggal, kategori, jumlah, catatan, date, choice;
     EditText input_tanggal;
     RadioButton r_pemasukan, r_pengeluaran, r_hutang;
     RadioButton r_button;
@@ -98,8 +98,9 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
         kategori = input_kategori.getEditText().getText().toString().trim();
         jumlah = input_jumlah.getEditText().getText().toString().trim();
         catatan = input_catatan.getEditText().getText().toString().trim();
+        
 
-        if (!tanggal.isEmpty() && !kategori.isEmpty() && !jumlah.isEmpty() && !catatan.isEmpty()) {
+        if (!tanggal.isEmpty() && !kategori.isEmpty() && !jumlah.isEmpty() && !catatan.isEmpty() && !choice.isEmpty()) {
             button_save.setEnabled(true);
         }
         else{
