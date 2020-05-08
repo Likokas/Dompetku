@@ -84,6 +84,9 @@ public class TransaksiHelper {
     public int delete(String id){
         return database.delete(DATABASE_TABLE, TableColumns._ID + " = '" + id + "'", null);
     }
+    public int deleteAll(){
+        return database.delete(DATABASE_TABLE, null, null);
+    }
 }
 
 
