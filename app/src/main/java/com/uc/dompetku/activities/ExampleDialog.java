@@ -23,9 +23,8 @@ public class ExampleDialog extends AppCompatDialogFragment {
     public Dialog onCreateDialog( Bundle savedInstanceState) {
         transaksiHelper = new TransaksiHelper(getActivity());
         listsave = transaksiHelper.allData();
-        for(int i=0; i<listsave.size(); i++) {
-            note = listsave.get(i).getmCatatan();
-        }
+        note = User.getcatatan;
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Notes")
                 .setMessage(note)
