@@ -1,60 +1,44 @@
 package com.uc.dompetku.activities;
 
 import android.app.Dialog;
-import android.app.DownloadManager;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.uc.dompetku.db.DatabaseConstruct;
 import com.uc.dompetku.db.DatabaseHelper;
 import com.uc.dompetku.db.TransaksiHelper;
-import com.uc.dompetku.fragments.TransaksiFragment;
 import com.uc.dompetku.model.User;
 
 import java.util.ArrayList;
 
-public class ExampleDialog extends AppCompatDialogFragment {
+public class CautionDialog extends AppCompatDialogFragment {
 
     DatabaseHelper myDb;
 
     private ArrayList<User> listsave;
     private TransaksiHelper transaksiHelper;
     private String note, id;
-    private int test;
 
     String tanggal, kategori, jumlah, catatan, date;
 
 
     @Override
     public Dialog onCreateDialog( Bundle savedInstanceState) {
-        note = User.getcatatan;
-
-
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Catatan")
-                .setMessage(note)
-                .setNegativeButton("Delete", new DialogInterface.OnClickListener() {
+        builder.setTitle("Warning")
+                .setMessage("Are you sure you want to delete?")
+                .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
                         transaksiHelper = new TransaksiHelper(getActivity());
                         listsave = transaksiHelper.allData();
-                        id = User.getid;
-                        transaksiHelper.delete(id);
-                        
-
+                        transaksiHelper.deleteAll();
                     }
                 })
-                .setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                .setPositiveButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
                             dialog.dismiss();
