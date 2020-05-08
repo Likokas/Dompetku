@@ -278,7 +278,9 @@
         android:id="@+id/line1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="_____________________________________________"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:text="______________________________________________"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uang_pengeluaran" />
@@ -287,7 +289,9 @@
         android:id="@+id/line2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="_____________________________________________"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:text="______________________________________________"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uang_hutang" />
