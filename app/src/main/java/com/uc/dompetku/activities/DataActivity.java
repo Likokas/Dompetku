@@ -2,6 +2,7 @@ package com.uc.dompetku.activities;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -34,6 +35,7 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
     RadioGroup r_group;
     Button button_save;
     private TransaksiHelper transaksiHelper;
+    Toolbar toolbar;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -55,7 +57,6 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
         SimpleDateFormat dateF = new SimpleDateFormat("EEE, d MMM yyyy", Locale.getDefault());
         date = dateF.format(Calendar.getInstance().getTime());
         input_tanggal.setText(date);
-
 
         input_kategori.getEditText().addTextChangedListener(this);
         input_jumlah.getEditText().addTextChangedListener(this);
@@ -85,6 +86,16 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
                 }
             }
         });
+
+        toolbar = findViewById(R.id.back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("ready", "filled");
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -98,7 +109,7 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
         kategori = input_kategori.getEditText().getText().toString().trim();
         jumlah = input_jumlah.getEditText().getText().toString().trim();
         catatan = input_catatan.getEditText().getText().toString().trim();
-        
+//        choice = r_button.getText().toString().;
 
         if (!tanggal.isEmpty() && !kategori.isEmpty() && !jumlah.isEmpty() && !catatan.isEmpty() && !choice.isEmpty()) {
             button_save.setEnabled(true);
