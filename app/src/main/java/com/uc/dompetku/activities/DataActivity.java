@@ -26,7 +26,9 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class DataActivity extends AppCompatActivity implements TextWatcher {
-    TextInputLayout input_kategori, input_jumlah, input_catatan;
+    TextInputLayout input_kategori;
+    TextInputLayout input_jumlah;
+    TextInputLayout input_catatan;
     String tanggal, kategori, jumlah, catatan, date;
     EditText input_tanggal;
     RadioButton r_pemasukan, r_pengeluaran, r_hutang;
@@ -98,6 +100,7 @@ public class DataActivity extends AppCompatActivity implements TextWatcher {
         kategori = input_kategori.getEditText().getText().toString().trim();
         jumlah = input_jumlah.getEditText().getText().toString().trim();
         catatan = input_catatan.getEditText().getText().toString().trim();
+
 
         if (!tanggal.isEmpty() && !kategori.isEmpty() && !jumlah.isEmpty() && !catatan.isEmpty()) {
             button_save.setEnabled(true);

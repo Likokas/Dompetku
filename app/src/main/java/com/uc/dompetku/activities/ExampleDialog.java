@@ -27,6 +27,7 @@ public class ExampleDialog extends AppCompatDialogFragment {
     private ArrayList<User> listsave;
     private TransaksiHelper transaksiHelper;
     private String note, id;
+    private int test;
 
     String tanggal, kategori, jumlah, catatan, date;
 
@@ -40,18 +41,20 @@ public class ExampleDialog extends AppCompatDialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Catatan")
                 .setMessage(note)
-                .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                .setNegativeButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
-                        transaksiHelper = new TransaksiHelper(getActivity());
-                        listsave = transaksiHelper.allData();
-                        id = User.getid;
-                        transaksiHelper.delete(id);
+                        if (test == 0) {
+                            transaksiHelper = new TransaksiHelper(getActivity());
+                            listsave = transaksiHelper.allData();
+                            id = User.getid;
+                            test =(transaksiHelper.delete(id));
+                        }
 
 
                     }
                 })
-                .setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Close", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
                             dialog.dismiss();
