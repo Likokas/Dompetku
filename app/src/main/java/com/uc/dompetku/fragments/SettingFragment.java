@@ -13,10 +13,16 @@ import androidx.fragment.app.Fragment;
 
 import com.uc.dompetku.R;
 import com.uc.dompetku.db.DatabaseHelper;
+import com.uc.dompetku.db.TransaksiHelper;
+import com.uc.dompetku.model.User;
+
+import java.util.ArrayList;
 
 
 public class SettingFragment extends Fragment {
     Button btn_clear;
+    private ArrayList<User> listsave;
+    private TransaksiHelper transaksiHelper;
 
     public SettingFragment() {
         // Required empty public constructor
@@ -37,12 +43,13 @@ public class SettingFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        btn_clear = view.findViewById(R.id.btn_save);
+        btn_clear = view.findViewById(R.id.clear);
         btn_clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                DatabaseHelper databaseHelper = new DatabaseHelper(this);
-//                context.deleteDatabase(databaseHelper db);
+                transaksiHelper = new TransaksiHelper(getActivity());
+                listsave = transaksiHelper.allData();
+                transaksiHelper.deleteAll();
             }
         });
     }
