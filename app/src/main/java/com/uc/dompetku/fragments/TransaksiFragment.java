@@ -80,6 +80,7 @@ public class TransaksiFragment extends Fragment {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                 User.getcatatan = listsave.get(position).getmCatatan();
+                User.getid = listsave.get(position).getmId();
                 openDialog();
             }
         });
