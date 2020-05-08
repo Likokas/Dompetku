@@ -40,16 +40,18 @@ public class ExampleDialog extends AppCompatDialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Catatan")
                 .setMessage(note)
-                .setNegativeButton("Delete", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
                         transaksiHelper = new TransaksiHelper(getActivity());
                         listsave = transaksiHelper.allData();
                         id = User.getid;
                         transaksiHelper.delete(id);
+
+
                     }
                 })
-                .setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                .setNegativeButton("Close", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
                             dialog.dismiss();
