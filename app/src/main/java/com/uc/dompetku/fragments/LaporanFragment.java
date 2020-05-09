@@ -74,7 +74,7 @@ public class LaporanFragment extends Fragment {
         total = uTotal();
         totalakhir = uTotalAkhir();
 
-        u_sementara.setText(String.valueOf("Rp. " + sementara));
+        u_sementara.setText(String.valueOf("Rp. " + pemasukan));
         u_pengeluaran.setText(String.valueOf("Rp. " + pengeluaran));
         u_pemasukan.setText(String.valueOf(("Rp. " + pemasukan)));
         u_total.setText(String.valueOf(("Rp. " + total)));

@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.uc.dompetku.R;
+import com.uc.dompetku.db.TransaksiHelper;
 import com.uc.dompetku.model.User;
 
 import java.util.ArrayList;
@@ -47,7 +48,11 @@ public class RowLayoutAdapter extends RecyclerView.Adapter<RowLayoutAdapter.Exam
         User currentItem = mAdapterList.get(position);
         holder.mTextView1.setText(currentItem.getmTanggal());
         holder.mTextView2.setText(currentItem.getmKategori());
-        holder.mTextView3.setText("Rp. " + currentItem.getmJumlah());
+        if (mAdapterList.get(position).getmChoice().equalsIgnoreCase("pemasukan")) {
+            holder.mTextView3.setText("+Rp. " + currentItem.getmJumlah());
+        } else {
+            holder.mTextView3.setText("-Rp. " + currentItem.getmJumlah());
+        }
     }
 
     @Override
